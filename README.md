@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Employee Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Overview
 
-## Available Scripts
+This project is a **React-based Employee Management Dashboard** built as part of an interview assessment.  
+It allows users to manage employee records with basic CRUD operations, image upload, filtering, status toggling, and printing functionality.
 
-In the project directory, you can run:
+The application is **frontend-only** and uses **browser localStorage** for data persistence, as per the assignment scope.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🔐 Authentication
 
-### `npm test`
+- Login page as the entry point
+- Mock authentication (no backend)
+- Dashboard access is restricted without login
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### 📊 Dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Employee list displayed in a table
+- Summary cards showing:
+  - Total Employees
+  - Active Employees
+  - Inactive Employees
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ➕ Add / ✏️ Edit Employee
 
-### `npm run eject`
+- Form opens on **Add Employee** or **Edit**
+- Form closes automatically on **Save** or **Cancel**
+- Fields included:
+  - Full Name (required)
+  - Gender (dropdown)
+  - Date of Birth (date picker)
+  - State (dropdown)
+  - Profile Image upload (image picker)
+  - Active / Inactive status
+- Image preview is shown before saving
+- Basic validation for required fields
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🖼️ Profile Image Handling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Only image files are allowed
+- Image size restricted to avoid browser storage limits
+- Image preview before saving
+- Uploaded image displayed in the employee list
+- Placeholder (initial letter) shown if no image is provided
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 📋 Employee List & Actions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Displays employee details including profile image
+- Available actions:
+  - Edit employee
+  - Delete employee (with confirmation)
+- Active / Inactive status can be toggled directly from the list
+- Changes are reflected immediately and persisted
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 🔍 Search & Filters
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Search employees by name
+- Filter by gender
+- Filter by active / inactive status
+- Filters work together dynamically
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🖨️ Print Employees List
 
-### Making a Progressive Web App
+- Single **Print Employees** button
+- Prints only the employee table (not the entire page)
+- Uses print-specific CSS for clean output
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 💾 Data Persistence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Employee data stored in `localStorage`
+- Data persists across page refreshes
+- No backend or database used
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🛠️ Tech Stack
 
-### `npm run build` fails to minify
+- **React** (Functional Components)
+- **React Hooks** (`useState`, `useEffect`)
+- **CSS** for styling
+- **Browser localStorage** for persistence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_No external UI libraries were used._
+
+---
+
+## 📁 Project Structure
+
+src/
+├── components/
+│ ├── Auth/
+│ │ └── Login.jsx
+│ ├── Dashboard/
+│ │ ├── Dashboard.jsx
+│ │ ├── EmployeeForm.jsx
+│ │ ├── EmployeeTable.jsx
+│ │ ├── EmployeeFilters.jsx
+│ │ └── SummaryCards.jsx
+├── App.js
+├── index.js
+├── context/
+│ └── AuthContext.js
+└── styles/
+  └── global.css
+
+---
+
+## ▶️ How to Run the Project
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+2. Start the development server:
+
+   npm start
+
+3. Open in browser:
+
+   http://localhost:3000
