@@ -1,23 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
-import "./styles/global.css";
+import { AuthContext } from "./context/AuthContext";
 import Login from "./components/Auth/login";
 import Dashboard from "./components/Dashboard/dashboard";
-import { AuthContext } from "./context/AuthContext";
+import "./styles/global.css";
 
 function App() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
 
   return (
     <Routes>
       <Route
         path="/"
-        element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login />}
+        element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />}
       />
 
       <Route
         path="/dashboard"
-        element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />}
+        element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
       />
     </Routes>
   );
